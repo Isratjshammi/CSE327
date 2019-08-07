@@ -1,0 +1,29 @@
+body{
+    background-image: url(orange.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+}
+.login-part{
+    text-align: center;
+    margin: 220px 600px;
+    
+}
+#login{
+    width: 100%;
+    background-color: darkorange;
+    opacity: 0.8;
+    padding: 50px 0px;
+}
+#button{
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: 0px;
+}
+#butt{
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: 0px;
+    background-color: oldlace;
+}
