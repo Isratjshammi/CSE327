@@ -1,0 +1,50 @@
+body{
+    background-image: url(../orange.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 700px;
+}
+
+.register-form{
+    text-align: center;
+    margin: 60px 560px;
+    
+}
+#registration{
+    width: 100%;
+    background-color: darkorange;
+    opacity: 0.8;
+    padding: 50px 0px;
+}
+#button{
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: 0px;
+}
+#ph{
+    outline: 0ps;
+    width: 190px;
+    padding: 10px;
+    border-radius: 5px; 
+    
+}
+#phone{
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: 0px;
+}
+#rd{
+    
+}
+#but{
+    color: black;
+    font-size: 18px;
+}
+#butt{
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    outline: 0px;
+    background-color: oldlace;
+}
