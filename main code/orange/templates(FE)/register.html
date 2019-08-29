@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="container form_container" >
+    <h1 id='formheader'>Register</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form class="" method="POST">
+      <div class="form-group form_group">
+        {{ render_field(form.firstName, placeholder='Enter First Name', class_="form-control") }}
+      </div>
+      <div class="form-group form_group">
+        {{ render_field(form.lastName, placeholder='Enter Last Name', class_="form-control") }}
+      </div>
+      <div class="form-group form_group">
+        {{ render_field(form.address, placeholder='Enter Address', class_="form-control") }}
+      </div>
+      <div class="form-group form_group">
+        {{ render_field(form.emailAddress, placeholder='Enter Email Address', class_="form-control") }}
+      </div>
+      <div class="form-group form_group">
+        {{ render_field(form.cellPhone, placeholder='Enter Cell Phone Number', class_="form-control") }}
+      </div>
+      <div class="form-group form_group">
+        {{ render_field(form.password, placeholder='Enter Password', class_="form-control") }}
+      </div>
+      <div class="form-group form_group">
+        {{ render_field(form.confirmPassword, placeholder='Re-enter Password', class_="form-control") }}
+      </div>
+      <p><input type="submit" class="btn btn-outline-dark form_button" value="Register"></p>
+    </form>
+  </div>
+{% endblock %}

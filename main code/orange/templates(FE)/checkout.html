@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="container" id="payment_container">
+    <h2 id="payment_header">Please select a payment method to complete the purchase</h2>
+    <div class="container paypal_container" id="paypal-button-container"></div>
+    <div id="payment_button">
+      <h2 id="payment_complete"></h2>
+      <a class="btn btn-dark" id="cart_button" href="/cart/view/">Return</a>
+    </div>
+  </div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AYXPVlAQmmUpskJ8Jh4lViCRRysXJHeha8E9Hg43jOF5rYHujxyEuRJkgv0nSDlVkyf_KDv35DHri168"></script>
+
+  <script>
+    paypal.Buttons({
+      style: {
+              color:  'blue',
+              label:  'pay'
+      },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: "{{ total_amount['sum'] }}"
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+                  // Show a success message to the buyer
+                  alert('Thankyou, ' + details.payer.name.given_name + 'Transaction is complete!');
+                  $.post("/checkout/", { order_id: data.orderID });
+                  
+                  document.getElementById("payment_complete").innerHTML = "Thankyou for completing the purchase!";
+
+                /*
+                  return fetch('/paypal-transaction-complete/', {
+                  method: 'post',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                    body: JSON.stringify({
+                      orderID: data.orderID
+                    })
+                  });
+                */
+        });
+      }
+    }).render('#paypal-button-container');
+  </script>
+{% endblock %}
