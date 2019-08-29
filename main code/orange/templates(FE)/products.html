@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div id='productNav'>
+    
+  </div>
+  <div id="productContainer">
+    <div id="showcase">
+      {% for category in category_list %}
+        <div class="categoryTitle">
+          <h2>{{ category['categoryName'] }}</h2>
+        </div>
+        {% for product in product_list %}
+          {% if product['categoryID'] == category['categoryID'] %}
+            <div class="productCard">
+              <a href="#"><img src="/static/images/{{ product['categoryID'] }}_{{ product['productID'] }}.png" alt=""></a>
+              <div class="cardTitle">
+                <h2>{{ product['name'] }}</h2>
+              </div>
+              <div class="cardPrice">
+                <h4><span>Tk. {{ product['price'] }}</span></h4>
+              </div>
+              <div class="cardExtra">
+                
+              </div>
+              <div class="add_to_cart">
+                <a class="btn btn-outline-info btn-block" href="/cart/add/{{ product['categoryID'] }}/{{ product['productID'] }}/">Add to cart</a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
