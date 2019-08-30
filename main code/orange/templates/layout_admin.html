@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=devie-width, initial-scale=1.0">
+    <!-- BOOTSTRAP includes here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Defined Stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
+    <title> ORANGE! | Admin </title>
+</head>
+<body>
+  <header>
+    <div class="headerPane">
+      <div id="branding">
+          <h1 id="logo"><a href="#">ORANGE</a></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><button type="button" class="btn btn-link admin_nav" data-toggle="collapse" data-target="">View Products</button></li>
+          <li><button type="button" class="btn btn-link admin_nav" data-toggle="collapse" data-target="#add_product_form">Add Product</button></li>
+          <li><button type="button" class="btn btn-link admin_nav" data-toggle="collapse" data-target="#add_category_form">Add Category</button></li>
+          <li><button type="button" class="btn btn-link admin_nav" data-toggle="collapse" data-target="#delete_catagory_form">Delete Category</button></li>
+          <li><button type="button" class="btn btn-link admin_nav" data-toggle="collapse" data-target="#update_image_form">Update Image</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div id="ceiling"></div>
+  {% include "includes/_messages.html" %}
+  
+  {% block body %}
+  {% endblock %}
+</body>
+</html>

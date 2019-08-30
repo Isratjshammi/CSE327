@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="container table_container">
+    <div>
+      <h1 id="cart_header">Your Shopping</h1>
+    </div>
+    {% if products %}
+    <table class="table table-striped products_table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Date</th>
+          <th id="table_subtotal">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in products %}
+          <tr>
+            <td id="table_image"><img src="/static/images/{{ item['categoryID'] }}_{{ item['productID'] }}.png" alt=""></td>
+            <td><h4>{{ item['name'] }}</h4></td>
+            <td>{{ item['quantity'] }}</td>
+            <td>{{ item['date'] }}</td>
+            <td id="table_subtotal"><h4>{{ item['price'] }}</h4></td>
+          </tr>
+        {% endfor %}            
+      </tbody>
+    </table>
+    <div id="cart_buttons">
+      <a class="btn btn-outline-info" id="cart_button" href="/">Return</a>
+    </div>
+    {% else %}
+    <div class="alert alert-info alert-dismissible fade show" id="cart_alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        No <strong>Purchase!</strong>
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}

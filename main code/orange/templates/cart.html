@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="container table_container">
+    <div>
+      <h1 id="cart_header">Shopping Cart</h1>
+    </div>
+    {% if cart_items %}
+    <table class="table table-striped products_table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th id="table_subtotal">Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+          <tr>
+            <td id="table_image"><img src="/static/images/{{ item['categoryID'] }}_{{ item['productID'] }}.png" alt=""></td>
+            <td><h4>{{ item['name'] }}</h4></td>
+            <td>{{ item['quantity'] }}</td>
+            <td id="table_subtotal"><h4> Tk. {{ item['amount'] }}</h4></td>
+            <td><a class="btn btn-danger" href="/cart/remove/{{ item['categoryID'] }}/{{ item['productID'] }}/">Remove</a></td>
+          </tr>
+        {% endfor %}            
+      </tbody>
+    </table>
+    <div id="cart_price">
+      <h2>Total Price: Tk {{ total_amount['sum'] }}</h2>
+    </div>
+    <div id="cart_buttons">
+      <a class="btn btn-outline-danger" id="cart_button" href="/cart/cancel/">Cancel Cart</a>
+      <a class="btn btn-dark" id="cart_button" href="/checkout/">Checkout</a>
+    </div>
+    {% else %}
+    <div class="alert alert-info alert-dismissible fade show" id="cart_alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        Cart is <strong>Empty!</strong>
+    </div>
+    {% endif %}
+  </div>
+{% endblock %}
